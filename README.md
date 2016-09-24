@@ -15,3 +15,8 @@
     gvt fetch github.com/fatih/color
 
 getpkg脚本是为了一键下载manifest中定义的包
+
+
+##动态设置go的运行目录update-gopath.bat
+
+以管理员权限运行

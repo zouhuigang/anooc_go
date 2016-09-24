@@ -14,6 +14,7 @@ set GOPATH=%~dp0
 gofmt -w src
 
 go install server/studygolang
+go install server/gather
 
 :end
 echo finished
