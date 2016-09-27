@@ -2,3 +2,6 @@ bin/**
 log/**
 pkg/**
 sitemap/**
+src/server/gather/**
+src/server/gather/**
+!src/server/gather/main.go
