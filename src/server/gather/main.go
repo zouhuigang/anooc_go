@@ -8,34 +8,66 @@ import (
 	"os"
 	"path"
 	"log"
+	"sync"
 )
 
 var ch chan int = make(chan int)
-var qqinit int=21417933
+var qqinit int=23409330
 func main() {
-	groupNumber :=200
-	for i :=0;i<groupNumber;i++ {
-		go geticon(i)
-	}
+    var wg sync.WaitGroup //创建一个sync.WaitGroup
+	TCount :=100 //并发
+	//产生任务
+   go func() {
+    for i := 0; i < 100000; i++ {
+	     ch <- i
+    }
+    close(ch)
+  }()
+
+  //开始执行
+   wg.Add(TCount)
+   for i := 0; i < TCount; i++ {
+     i := i
+	 go func() {
+      defer func() { wg.Done() }()
+
+      fmt.Printf("工作者 %v 启动...\r\n", i)
+
+      for task := range ch {
+        func() {
+
+          defer func() {
+            err := recover()
+            if err != nil {
+              fmt.Printf("任务失败：工作者i=%v, task=%v, err=%v\r\n", i, task, err)
+            }
+          }()
+		  
+            geticon(task)
+	        fmt.Printf("任务结果=%v ，工作者id=%v, task=%v\r\n",task*task,i,task)
+        }()
+      }
+
+      fmt.Printf("工作者 %v 结束。\r\n", i)
+    }()
 	
-	for i :=0;i<groupNumber;i++ {
-		<-ch
-	}
-	
-	fmt.Println("success")
+   }
+   
+  //等待所有任务完成
+  wg.Wait()
+  print("全部任务结束")
 }
 
 //抓取头像17923391;19923392,20023392
 func geticon(groupNumber int){
-	number := groupNumber*10000+qqinit;
-	end := (groupNumber+1)*10000+qqinit;
+	number := groupNumber*1000+qqinit;
+	end := (groupNumber+1)*1000+qqinit;
 	for i:=number; i<end;i++ {
 		 // 通过Itoa方法转换
 		 str1 := strconv.Itoa(i)
 		 urls :="http://qlogo3.store.qq.com/qzone/"+str1+"/"+str1+"/100"
 		 downOneImg(urls,str1,groupNumber)
 	}
-	ch <- 1
 }
 
 
@@ -70,7 +102,7 @@ func downOneImg(imgUrl string,id string,groupNumber int) {
         panic(err)
     }
 	//写入图信息
-	_, err = f.Write([]byte(body))
+	_, err = f.Write(body)
 	
     defer f.Close()
 
