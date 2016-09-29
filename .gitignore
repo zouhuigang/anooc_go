@@ -4,4 +4,4 @@ pkg/**
 sitemap/**
 src/server/gather/**
 src/server/gather/**
-!src/server/gather/main.go
+!src/server/gather/*.go
