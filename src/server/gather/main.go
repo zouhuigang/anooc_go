@@ -12,13 +12,13 @@ import (
 )
 
 var ch chan int = make(chan int)
-var qqinit int=23409330
+var qqinit int=26807293
 func main() {
     var wg sync.WaitGroup //创建一个sync.WaitGroup
-	TCount :=100 //并发
+	TCount :=50 //并发
 	//产生任务
    go func() {
-    for i := 0; i < 100000; i++ {
+    for i := 0; i < 200; i++ {
 	     ch <- i
     }
     close(ch)

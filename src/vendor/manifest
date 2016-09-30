@@ -346,6 +346,12 @@
 			"path": "/assert"
 		},
 		{
+			"importpath": "github.com/tealeg/xlsx",
+			"repository": "https://github.com/tealeg/xlsx",
+			"revision": "887b805086ab2016cdcdbb7a3cab8c0b867e5a64",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/twinj/uuid",
 			"repository": "https://github.com/twinj/uuid",
 			"revision": "89173bcdda19db0eb88aef1e1cb1cb2505561d31",
