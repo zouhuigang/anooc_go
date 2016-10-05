@@ -14,6 +14,12 @@
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/akavel/rsrc",
+			"repository": "https://github.com/akavel/rsrc",
+			"revision": "ba14da1f827188454a4591717fff29999010887f",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/andybalholm/cascadia",
 			"repository": "https://github.com/andybalholm/cascadia",
 			"revision": "3ad29d1ad1c4f2023e355603324348cf1f4b2d48",
@@ -230,6 +236,18 @@
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/lxn/walk",
+			"repository": "https://github.com/lxn/walk",
+			"revision": "765f1657380e994529d22000a97b046bba4f3291",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/lxn/win",
+			"repository": "https://github.com/lxn/win",
+			"revision": "8855eceee83ca086d647feb3d359a1d2ab6c7ccf",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/mattn/go-colorable",
 			"repository": "https://github.com/mattn/go-colorable",
 			"revision": "9cbef7c35391cca05f15f8181dc0b18bc9736dbb",
@@ -245,6 +263,12 @@
 			"importpath": "github.com/mattn/go-sqlite3",
 			"repository": "https://github.com/mattn/go-sqlite3",
 			"revision": "37aa7c6f5bc95b7264de70cd1f0ca1d39228ebd6",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/microcosm-cc/bluemonday",
+			"repository": "https://github.com/microcosm-cc/bluemonday",
+			"revision": "7d0cad0ac7ef5e3afd74816444b44b56327422a4",
 			"branch": "master"
 		},
 		{
@@ -336,6 +360,18 @@
 			"importpath": "github.com/robfig/cron",
 			"repository": "https://github.com/robfig/cron",
 			"revision": "0f39cf7ebc65a602f45692f9894bd6a193faf8fa",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/russross/blackfriday",
+			"repository": "https://github.com/russross/blackfriday",
+			"revision": "35eb537633d9950afc8ae7bdf0edb6134584e9fc",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/shurcooL/sanitized_anchor_name",
+			"repository": "https://github.com/shurcooL/sanitized_anchor_name",
+			"revision": "1dba4b3954bc059efc3991ec364f9f9a35f597d2",
 			"branch": "master"
 		},
 		{

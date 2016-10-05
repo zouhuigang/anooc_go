@@ -1,9 +1,9 @@
 package jobqueue
 
-type HandleFunc func (interface{})
+type HandleFunc func(interface{})
 
-type Job struct{
-	Input interface{}
+type Job struct {
+	Input   interface{}
 	Handler HandleFunc
 }
 

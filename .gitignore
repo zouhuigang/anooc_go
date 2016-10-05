@@ -3,5 +3,5 @@ log/**
 pkg/**
 sitemap/**
 src/server/gather/**
-src/server/gather/**
 !src/server/gather/*.go
+!src/server/gather/lib

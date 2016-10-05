@@ -25,4 +25,7 @@ func RegisterRoutes(g *echo.Group) {
 	new(BlogController).RegisterRoute(g)
 
 	new(InstallController).RegisterRoute(g)
+
+	new(MdController).RegisterRoute(g)
+	new(ReactController).RegisterRoute(g)
 }

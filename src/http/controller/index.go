@@ -58,7 +58,7 @@ func (IndexController) Index(ctx echo.Context) error {
 	// Golang 资源
 	resources := logic.DefaultResource.FindBy(ctx, 10)
 
-	return render(ctx, "index.html", map[string]interface{}{"topics": topicsList, "articles": recentArticles, "likeflags": likeFlags, "resources": resources})
+	return render(ctx, "welcome/index.html", map[string]interface{}{"topics": topicsList, "articles": recentArticles, "likeflags": likeFlags, "resources": resources})
 }
 
 // WrapUrl 包装链接
