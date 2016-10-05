@@ -7,9 +7,9 @@
 package main
 
 import (
+	. "github.com/polaris1119/config"
 	"global"
 	"http/controller"
-	"http/controller/admin"
 	"io/ioutil"
 	"math/rand"
 	"os"
@@ -17,16 +17,13 @@ import (
 	"strconv"
 	"time"
 
-	. "github.com/polaris1119/config"
-
-	pwm "http/middleware"
-
 	"github.com/fatih/structs"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/standard"
 	mw "github.com/labstack/echo/middleware"
 	"github.com/polaris1119/logger"
 	thirdmw "github.com/polaris1119/middleware"
+	pwm "http/middleware"
 )
 
 func init() {
@@ -54,14 +51,9 @@ func main() {
 	e.Use(mw.Recover())
 	e.Use(pwm.Installed(filterPrefixs))
 	e.Use(pwm.HTTPError())
-	e.Use(pwm.AutoLogin())
 
 	frontG := e.Group("", thirdmw.EchoCache())
 	controller.RegisterRoutes(frontG)
-
-	frontG.GET("/admin", echo.HandlerFunc(admin.AdminIndex), pwm.NeedLogin(), pwm.AdminAuth())
-	adminG := e.Group("/admin", pwm.NeedLogin(), pwm.AdminAuth())
-	admin.RegisterRoutes(adminG)
 
 	std := standard.New(getAddr())
 	std.SetHandler(e)

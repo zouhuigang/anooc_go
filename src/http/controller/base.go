@@ -8,10 +8,9 @@ package controller
 
 import (
 	"encoding/json"
-	"logic"
-	"net/http"
-
 	. "http"
+	"model"
+	"net/http"
 
 	"github.com/labstack/echo"
 	"github.com/polaris1119/logger"
@@ -19,7 +18,7 @@ import (
 )
 
 func getLogger(ctx echo.Context) *logger.Logger {
-	return logic.GetLogger(ctx)
+	return model.GetLogger(ctx)
 }
 
 // render html 输出

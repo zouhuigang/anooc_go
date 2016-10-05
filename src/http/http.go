@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"global"
 	"html/template"
-	"logic"
 	"model"
 	"net/http"
 	"strings"
@@ -98,7 +97,7 @@ func Render(ctx echo.Context, contentTpl string, data map[string]interface{}) er
 		data = map[string]interface{}{}
 	}
 
-	objLog := logic.GetLogger(ctx)
+	objLog := model.GetLogger(ctx)
 
 	//contentTpl = LayoutTpl + "," + contentTpl
 	// 为了使用自定义的模板函数，首先New一个以第一个模板文件名为模板名。
@@ -122,7 +121,7 @@ func RenderAdmin(ctx echo.Context, contentTpl string, data map[string]interface{
 		data = map[string]interface{}{}
 	}
 
-	objLog := logic.GetLogger(ctx)
+	objLog := model.GetLogger(ctx)
 
 	contentTpl = AdminLayoutTpl + "," + contentTpl
 	// 为了使用自定义的模板函数，首先New一个以第一个模板文件名为模板名。
@@ -139,22 +138,12 @@ func RenderAdmin(ctx echo.Context, contentTpl string, data map[string]interface{
 		return err
 	}
 
-	// 当前用户信息
-	curUser := ctx.Get("user").(*model.Me)
-
-	if menu1, menu2, curMenu1 := logic.DefaultAuthority.GetUserMenu(ctx, curUser, requestURI); menu2 != nil {
-		data["menu1"] = menu1
-		data["menu2"] = menu2
-		data["uri"] = requestURI
-		data["cur_menu1"] = curMenu1
-	}
-
 	return executeTpl(ctx, tpl, data)
 }
 
 // 后台 query 查询返回结果
 func RenderQuery(ctx echo.Context, contentTpl string, data map[string]interface{}) error {
-	objLog := logic.GetLogger(ctx)
+	objLog := model.GetLogger(ctx)
 
 	contentTpl = "common_query.html," + contentTpl
 	contentTpls := strings.Split(contentTpl, ",")
@@ -180,7 +169,7 @@ func RenderQuery(ctx echo.Context, contentTpl string, data map[string]interface{
 }
 
 func executeTpl(ctx echo.Context, tpl *template.Template, data map[string]interface{}) error {
-	objLog := logic.GetLogger(ctx)
+	objLog := model.GetLogger(ctx)
 
 	// 如果没有定义css和js模板，则定义之
 	if jsTpl := tpl.Lookup("js"); jsTpl == nil {
@@ -207,7 +196,7 @@ func executeTpl(ctx echo.Context, tpl *template.Template, data map[string]interf
 	global.App.SetUptime()
 	data["app"] = global.App
 
-	data["online_users"] = map[string]int{"online": logic.Book.Len(), "maxonline": logic.MaxOnlineNum()}
+	data["online_users"] = map[string]int{}
 
 	buf := new(bytes.Buffer)
 	err := tpl.Execute(buf, data)

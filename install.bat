@@ -14,8 +14,6 @@ set GOPATH=%~dp0
 gofmt -w src
 
 go install server/studygolang
-go install server/indexer
-go install server/crawler
 
 :end
 echo finished
