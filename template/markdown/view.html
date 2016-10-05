@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 {{template "header"}}
-<link rel="stylesheet" href="/static/css/makedown.css"/>
+<link rel="stylesheet" href="/static/css/markdownpad-github.css"/>
 </head>
  <body>
  
@@ -14,25 +14,12 @@
     </a>
 
  <div id="menu">
-        <div class="pure-menu pure-menu-open">
-            <a class="pure-menu-heading" href="/">首页</a>
-
-            <ul>
-                <li><a href="#">品味夜色</a></li>
-                <li><a href="#">谈谈人生</a></li>
-
-                <li class="menu-item-divided">
-                    <a href="#">私密日记</a>
-                </li>
-
-                <li><a href="/blog">每天学习10分钟</a></li>
-            </ul>
-        </div>
+	 {{template "nav"}}
     </div>
 	
 <div class="main">
  <!-- markdown -->
-<article class="markdown-body entry-content">
+<article class="markdown-body">
 {{.output}}
 </article>
  <!-- markdown -->
@@ -40,6 +27,6 @@
 
 </div>
 
-<script src="static/pure/ui.js"></script>
+<script src="/static/pure/ui.js"></script>
 </body>
 </html>

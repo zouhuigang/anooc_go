@@ -20,5 +20,5 @@ func (self IndexController) RegisterRoute(g *echo.Group) {
 // Index 首页
 func (IndexController) Index(ctx echo.Context) error {
 
-	return render(ctx, "welcome/index.html", map[string]interface{}{})
+	return render(ctx, "welcome/index.html,common/template.html", map[string]interface{}{})
 }

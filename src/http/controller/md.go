@@ -43,5 +43,5 @@ func (MdController) View(ctx echo.Context) error {
 	data := map[string]interface{}{
 		"output": template.HTML(outputHtml),
 	}
-	return render(ctx, "markdown/view.html,common/header.html", data)
+	return render(ctx, "markdown/view.html,common/template.html", data)
 }

@@ -15,5 +15,5 @@ func (this *BlogController) RegisterRoute(g *echo.Group) {
 func (BlogController) index(ctx echo.Context) error {
 
 	data := map[string]interface{}{}
-	return render(ctx, "blog/welcome.html,common/header.html", data)
+	return render(ctx, "blog/welcome.html,common/template.html", data)
 }
