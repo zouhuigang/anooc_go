@@ -12,22 +12,14 @@ type MdController struct{}
 
 //注册路由
 func (this *MdController) RegisterRoute(g *echo.Group) {
-	g.Get("/md", this.welcome)
+	g.Get("/editor", this.Editor)
 	g.Get("/view/:id", this.View)
 }
 
-func (MdController) welcome(ctx echo.Context) error {
-	const (
-		md = ``
-	)
+func (MdController) Editor(ctx echo.Context) error {
 
-	unsafe := blackfriday.MarkdownCommon([]byte(md))
-	outputHtml := bluemonday.UGCPolicy().SanitizeBytes(unsafe)
-
-	data := map[string]interface{}{
-		"output": template.HTML(outputHtml),
-	}
-	return render(ctx, "markdown/welcome.html", data)
+	data := map[string]interface{}{}
+	return render(ctx, "markdown/editor.html", data)
 
 }
 
