@@ -194,6 +194,9 @@ var languageOverrides = {
 	
 //编辑器工具栏==========================================
 var cm=editor;
+document.getElementById('homepage').addEventListener('click', function() {
+	  location.href='/';
+});
 document.getElementById('editormd-bold1').addEventListener('click', function() {
 	  h1();
 });
@@ -209,6 +212,29 @@ document.getElementById('fa-bold').addEventListener('click', function() {
 document.getElementById('fa-italic').addEventListener('click', function() {
 	  italic();
 });
+
+//打开文件
+$("[type=\"file\"]").bind("change",readFileContent);
+document.getElementById('fa-folder-open-o').addEventListener('click', function() {
+	   $("#fa-folder-open-oinput").trigger("click");
+});
+
+//读取文件,拖拽或打开文件读取
+function readFileContent(events) {
+      events.preventDefault();
+      events.stopPropagation();
+	  
+	  var r = (events.dataTransfer || events.target).files;  //dataTransfer:拖拽读取,target:打开文件读取
+
+      var reader = new FileReader();
+      reader.onload = function(e){
+        editor.setValue(e.target.result);
+      };
+      reader.readAsText(r[0]);
+
+ }
+
+
 
 function h1(){
 	//申明多个变量
