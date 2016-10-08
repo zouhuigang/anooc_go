@@ -4,16 +4,17 @@ import (
 	. "db"
 	"github.com/polaris1119/logger"
 	"golang.org/x/net/context"
+	"time"
 )
 
 type Anote struct {
-	Id           int    `json:"id"`
-	Title        string `json:"title"`
-	Content      string `json:"content"`
-	Ctime        string `json:"ctime"`
-	Commentnum   int    `json:"commentnum"`
-	Uid          int    `json:"uid"`
-	Newslist_tpl int    `json:"newslist_tpl"`
+	Id           int       `json:"id"`
+	Title        string    `json:"title"`
+	Content      string    `json:"content"`
+	Commentnum   int       `json:"commentnum"`
+	Uid          int       `json:"uid"`
+	Newslist_tpl int       `json:"newslist_tpl"`
+	Ctime        time.Time `json:"ctime"`
 }
 
 // FindById 获取单条博文

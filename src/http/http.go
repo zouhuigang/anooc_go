@@ -106,7 +106,13 @@ func Render(ctx echo.Context, contentTpl string, data map[string]interface{}) er
 	for i, contentTpl := range htmlFiles {
 		htmlFiles[i] = config.TemplateDir + contentTpl
 	}
-	tpl, err := template.ParseFiles(htmlFiles...)
+
+	FirstTpl := htmlFiles[0]
+	FirstNewFileArr := strings.SplitAfter(FirstTpl, "/")
+	lenN := len(FirstNewFileArr)
+	FirstNewFile := FirstNewFileArr[lenN-1]
+	//fmt.Println(FirstNewFile)
+	tpl, err := template.New(FirstNewFile).Funcs(funcMap).ParseFiles(htmlFiles...)
 	if err != nil {
 		objLog.Errorf("解析模板出错（ParseFiles）：[%q] %s\n", Request(ctx).RequestURI, err)
 		return err

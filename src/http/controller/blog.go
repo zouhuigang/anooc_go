@@ -23,5 +23,5 @@ func (BlogController) index(ctx echo.Context) error {
 	data := map[string]interface{}{
 		"lists": lists,
 	}
-	return render(ctx, "blog/welcome.html,common/template.html", data)
+	return render(ctx, "blog/welcome.html,common/template.html,common/newslist.html", data)
 }
