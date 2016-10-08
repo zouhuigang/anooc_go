@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/labstack/echo"
+	"model"
 )
 
 type BlogController struct{}
@@ -14,6 +15,13 @@ func (this *BlogController) RegisterRoute(g *echo.Group) {
 // Create 新建主题
 func (BlogController) index(ctx echo.Context) error {
 
-	data := map[string]interface{}{}
+	lists, err := model.MdModelList(20)
+	if err != nil {
+		return render(ctx, "welcome/index.html", map[string]interface{}{})
+	}
+
+	data := map[string]interface{}{
+		"lists": lists,
+	}
 	return render(ctx, "blog/welcome.html,common/template.html", data)
 }

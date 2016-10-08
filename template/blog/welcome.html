@@ -10,6 +10,7 @@
     <link href="static/css/news-iflow_6dd50e9.css" rel="stylesheet" type="text/css">
     <link href="static/css/news-bottombar_36443ab.css" rel="stylesheet" type="text/css">
     <link href="static/css/index_2e4ae1e.css" rel="stylesheet" type="text/css">
+	<script src="static/js/utils.js"></script>
 </head>
 <body>
 <div id="layout">
@@ -23,19 +24,25 @@
     {{template "nav"}}
 </div>
 	
+	<!-- 文章列表 -->
+	
+	 <a href="javascript:;" onclick="utils.sg()"/>点击</a>
+	
+	
 	<div class="main">
 	 <ul class="list clearfix" id="wrapper">
 
-		 <li data-pos="item" grab_time="1475628683530" recoid="16739863173314061198" class="item-tt" data-itemtype="operate" data-channel="100" data-article="6353010205039122964">
-	<a href="/view/1">
+	{{range .lists}}
+		<li class="item-tt">
+	    <a href="/view/{{.Id}}">
 		<div class="newsimg-tt left"><img class="showImg finish" src="http://image.zzd.sm.cn/17290133693329033317.jpg?id=0&amp;height=150&amp;width=200"></div>
 		<div class="text">
-			<p class="content_p left">最高法发布案例:离婚转移财产可判净身出户</p>
+			<p class="content_p left"> {{.Title}}</p>
 		<p class="subhead left"></p>
-			<p class="date left"><span class="time" data-value="1475628683530" title="1475628683530">1分钟前</span><span class="source_name">北京晨报</span><span class="cmt_tt ">905</span></p>
+		<p class="date left"><span class="time" data-value="1475628683530" title="1475628683530">{{.Ctime}}</span><span class="source_name">{{.Uid}}</span><span class="cmt_tt ">{{.Commentnum}}</span></p>
 		</div>
 	</a></li>
-
+	{{end}}
 		
 		<li data-pos="item" grab_time="1475545859325" recoid="920689326094066297" class="item-tt" data-itemtype="operate" data-channel="51830095" data-article="11391263073754802877">
     	<a href="/view/2">
