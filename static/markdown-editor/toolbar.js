@@ -213,6 +213,18 @@ document.getElementById('fa-italic').addEventListener('click', function() {
 	  italic();
 });
 
+//新建文件
+document.getElementById('fa-file-o').addEventListener('click', function() {	
+	NewFile();
+	 
+});
+
+//保存文件
+document.getElementById('fa-save').addEventListener('click', function() {	
+	saveMd();
+	 
+});
+
 //打开文件
 $("[type=\"file\"]").bind("change",readFileContent);
 document.getElementById('fa-folder-open-o').addEventListener('click', function() {
@@ -277,6 +289,36 @@ function  replaceSelection(e){
 
 function setCursor(e) {
     return cm.setCursor(e);
+}
+
+//保存
+function saveMd(){
+	
+	    var md =cm.getValue();
+		var title = cm.lineInfo(0);
+		var id = parseInt($("#id").val())?parseInt($("#id").val()):0;
+		if(!md){
+			alert("不能为空");
+			return false;
+		}
+		$.ajax({
+			     type: "POST",
+	             url: "/md/submitmd",
+	             data:{id:id,content:md,title:title.text,submit:1},
+	             dataType: "json",
+	             success: function(data){
+		          alert(data.msg);
+				  $("#id").val(data.data.id);
+				  setTimeout("window.location.reload()",1000);
+				 }
+		})	
+}
+
+
+//新建文件
+function NewFile(){
+	//window.location.href="/editor";
+	window.open("/editor", "_blank");
 }
 
                 

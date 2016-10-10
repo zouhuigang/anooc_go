@@ -103,6 +103,13 @@
 			"path": "/redis"
 		},
 		{
+			"importpath": "github.com/ggaaooppeenngg/md2txt/kind",
+			"repository": "https://github.com/ggaaooppeenngg/md2txt",
+			"revision": "f30f852f05846750dc323ee9ca4789ac5e76ed8c",
+			"branch": "master",
+			"path": "/kind"
+		},
+		{
 			"importpath": "github.com/go-sql-driver/mysql",
 			"repository": "https://github.com/go-sql-driver/mysql",
 			"revision": "3654d25ec346ee8ce71a68431025458d52a38ac0",
@@ -409,6 +416,12 @@
 			"importpath": "github.com/valyala/fasttemplate",
 			"repository": "https://github.com/valyala/fasttemplate",
 			"revision": "3b874956e03f1636d171bda64b130f9135f42cff",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/zouhuigang/md2txt",
+			"repository": "https://github.com/zouhuigang/md2txt",
+			"revision": "f30f852f05846750dc323ee9ca4789ac5e76ed8c",
 			"branch": "master"
 		},
 		{

@@ -239,8 +239,9 @@
 <div id="editorContent">
 <!-- 左边代码 -->
   <div id="in">
-  <form><textarea id="code">
-</textarea>
+ <form id="codeForm">
+ <textarea id="code"></textarea>
+ <input type="hidden" name="id" id="id" value="0">
 </form>
   </div>
 <!-- 右边显示 -->
@@ -269,6 +270,7 @@
   </div>
  </div>
    <script src="/static/js/jquery.min.js"></script>
+   <script src="/static/js/jquery.form.js"></script>
    <script src="/static/markdown-editor/toolbar.js"></script>
 </body>
 </html>
