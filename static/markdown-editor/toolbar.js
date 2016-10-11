@@ -72,11 +72,35 @@ function hideMenu() {
 //监听按键	
 document.addEventListener('keydown', function(e){
       if(e.keyCode == 83 && (e.ctrlKey || e.metaKey)){
-        e.shiftKey ? showMenu() : saveAsMarkdown();
+        e.shiftKey ? showMenu() : saveMd();
 
         e.preventDefault();
         return false;
       }
+
+	  //ctrl+m 保存markdown
+	  if(e.keyCode == 77 && (e.ctrlKey || e.metaKey)){
+	        saveAsMarkdown();
+
+            e.preventDefault();
+            return false;
+	  }
+
+	  //ctrl+m 保存html
+	  if(e.keyCode == 72 && (e.ctrlKey || e.metaKey)){
+	        saveAsHtml();
+
+            e.preventDefault();
+            return false;
+	  }
+
+	  //预览文章
+	  if(e.keyCode == 69 && (e.ctrlKey || e.metaKey)){
+	        mdeye();
+
+            e.preventDefault();
+            return false;
+	  }
 
       if(e.keyCode === 27 && menuVisible){
         hideMenu();
@@ -219,6 +243,12 @@ document.getElementById('fa-file-o').addEventListener('click', function() {
 	 
 });
 
+//预览网页文章
+document.getElementById('fa-eye').addEventListener('click', function() {	
+	mdeye();
+	 
+});
+
 //保存文件
 document.getElementById('fa-save').addEventListener('click', function() {	
 	saveMd();
@@ -298,7 +328,7 @@ function saveMd(){
 		var title = cm.lineInfo(0);
 		var id = parseInt($("#id").val())?parseInt($("#id").val()):0;
 		if(!md){
-			alert("不能为空");
+		    layer.msg("讨厌,内容不能为空啦...", {icon: 5});
 			return false;
 		}
 		$.ajax({
@@ -307,7 +337,8 @@ function saveMd(){
 	             data:{id:id,content:md,title:title.text,submit:1},
 	             dataType: "json",
 	             success: function(data){
-		          alert(data.msg);
+				  //提示层
+				  layer.msg(data.msg);
 				  $("#id").val(data.data.id);
 				  setTimeout("window.location.reload()",1000);
 				 }
@@ -321,4 +352,12 @@ function NewFile(){
 	window.open("/editor", "_blank");
 }
 
+function mdeye(){
+	var id = parseInt($("#id").val())?parseInt($("#id").val()):0;
+	if(!id){
+	    layer.msg("亲，请先保存再来偷看哟...", {icon: 5});
+		return false;
+	}
+	window.open("/view/"+id, "_blank");
+}
                 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Markdown Editor</title>
+  <title>Anote|只属于你的云笔记。</title>
   <script src="/static/markdown-editor/markdown-it.js"></script>
   <script src="/static/markdown-editor/markdown-it-footnote.js"></script>
    <script src="/static/markdown-editor/highlight.pack.js"></script>
@@ -20,11 +20,12 @@
   <!-- <link rel="stylesheet" href="/static/markdown-editor/base16-light.css"> -->
   <link rel="stylesheet" href="/static/markdown-editor/codemirror/lib/codemirror.css">
   <link rel="stylesheet" href="/static/markdown-editor/default.css">
+  <link rel="shortcut icon" href="/static/favicon.ico">
   <style type="text/css">
     body {margin: 0;}
 
     .CodeMirror pre{
-      line-height: 16px;
+	  font-size:18px;
     }
 	#editorContent{
 	   
@@ -229,6 +230,7 @@
 <li><a href="javascript:;" title="斜体" unselectable="on" id="fa-italic"><i class="fa fa-italic" name="italic" unselectable="on"></i></a></li>
 <li><a href="javascript:;" title="标题1" unselectable="on" id="editormd-bold1"><i class="fa editormd-bold" name="h1" unselectable="on">H1</i></a></li>
 <li><a href="javascript:;" title="标题2" unselectable="on" id="editormd-bold2"><i class="fa editormd-bold" name="h2" unselectable="on">H2</i></a></li>
+<li><a href="javascript:;" title="预览文章" unselectable="on" id="fa-eye"><i class="fa fa-eye"></i></a></li>
 
 
 
@@ -270,7 +272,7 @@
   </div>
  </div>
    <script src="/static/js/jquery.min.js"></script>
-   <script src="/static/js/jquery.form.js"></script>
+   <script src="/static/tools/layer/layer.js"></script>
    <script src="/static/markdown-editor/toolbar.js"></script>
 </body>
 </html>

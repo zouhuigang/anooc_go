@@ -1,19 +1,25 @@
 .markdown-body {
-	padding: 0 16px
-}
-.markdown-body {
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	color: #333;
 	overflow: hidden;
-	font-family: "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;
-	font-size: 16px;
+	font-family: Helvetica, arial, freesans, clean, sans-serif;
+	font-size: 14px;
 	line-height: 1.6;
-	word-wrap: break-word
+	word-wrap: break-word;
+
+	padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+	background-color: #fff;
 }
 
 .markdown-body a {
 	background: 0 0
+}
+
+.markdown-body em {
+	font-style: italic;
 }
 
 .markdown-body a:active,.markdown-body a:hover {
@@ -197,7 +203,6 @@
 	padding-bottom: .3em;
 	font-size: 2.25em;
 	line-height: 1.2;
-	border-bottom: 1px solid #eee
 }
 
 .markdown-body h1 .anchor {
@@ -557,3 +562,5 @@ pre code {
 	background-color: transparent;
 	border-radius: 0
 }
+
+
