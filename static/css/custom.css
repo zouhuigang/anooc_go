@@ -1,0 +1,99 @@
+.minimal-body{
+	margin:0 auto;
+	max-width:384px;
+	border-radius:5px;
+	background:#ffffff;
+    border: 1px solid #dedede;
+}
+
+.minimal-body-form{
+	width:80%;
+	margin:0 auto;
+}
+
+.heading {
+    font-family: caecilia,Times,serif;
+    font-style: normal;
+    font-weight: 300;
+    text-align: center;
+    color: #aaa;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 68px 0 26px 0;
+}
+
+.heading .branding {
+    background: url(/static/images/logo.png) no-repeat center top;
+    -webkit-background-size: 68px 68px;
+    -moz-background-size: 68px 68px;
+    -o-background-size: 68px 68px;
+    background-size: 68px 68px;
+	height: 68px;
+    margin-bottom: 19px;
+}
+
+.ftips{
+	font-size:12px;
+	line-height:30px;
+}
+
+.bar-header .logo-bar {
+    position: relative;
+    background-color: #2dbe60;
+    height: 4px;
+    width: 100%;
+    z-index: 3;
+}
+
+.t-pico{
+    color: #747474;
+    line-height: 1.63636364;
+    font-family: gotham,helvetica,arial,sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: .91666667em;
+    font-size: .91666667rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top:10px;
+}
+
+
+#context-switch{
+      text-align: center;
+	  margin-bottom:10px;
+}
+
+.switch a {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #df7514;
+    text-decoration: none;
+}
+
+.button-success{
+	 border-radius: 4px;
+	 color: #ffffff;
+	 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+     background: rgb(28, 184, 65);
+}
+.button-error {
+	border-radius: 4px;
+	color: #ffffff;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(202, 60, 60);
+ }
+.button-warning {
+	border-radius: 4px;
+	color: #ffffff;
+	 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(223, 117, 20);
+}
+.button-secondary {
+	border-radius: 4px;
+	color: #ffffff;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
