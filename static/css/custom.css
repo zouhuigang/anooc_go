@@ -97,3 +97,16 @@
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     background: rgb(66, 184, 221); /* this is a light blue */
 }
+
+.t{
+	background-color:#008000;
+    width:100%;
+	height:30px;
+	background-color:#fff;
+	border:1px solid #fff;
+	margin:3px 0;
+	padding:5px 5px;color:#777
+}
+
+.err{background-color:#fdf4f4;border:1px solid #f00;color:#f00}
+.tips .focus{background-color:#fffdbb;border:1px solid #eebf6d;color:#000}

@@ -1,9 +1,3 @@
-// Copyright 2016 The StudyGolang Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-// http://studygolang.com
-// Author: polaris	polaris@studygolang.com
-
 package model
 
 import (
@@ -12,7 +6,11 @@ import (
 	"math/rand"
 	"time"
 
+	. "db"
 	"github.com/polaris1119/goutils"
+	"github.com/polaris1119/logger"
+	"golang.org/x/net/context"
+	"net/url"
 )
 
 // 用户登录信息
@@ -119,4 +117,73 @@ type UserRole struct {
 	Uid    int    `json:"uid"`
 	Roleid int    `json:"roleid"`
 	ctime  string `xorm:"-"`
+}
+
+//用户注册
+func UserModelCreateUser(ctx context.Context, form url.Values) (errMsg string, err error) {
+	objLog := GetLogger(ctx)
+
+	user := &User{}
+	err = schemaDecoder.Decode(user, form)
+	if err != nil {
+		objLog.Errorln("user schema Decode error:", err)
+		errMsg = err.Error()
+		return
+	}
+
+	session := MasterDB.NewSession()
+	defer session.Close()
+
+	session.Begin()
+
+	_, err = session.Insert(user)
+	if err != nil {
+		session.Rollback()
+		errMsg = "内部服务器错误"
+		objLog.Errorln(errMsg, ":", err)
+		return
+	}
+
+	// 存用户登录信息
+	userLogin := &UserLogin{}
+	err = schemaDecoder.Decode(userLogin, form)
+	if err != nil {
+		session.Rollback()
+		errMsg = err.Error()
+		objLog.Errorln("CreateUser error:", err)
+		return
+	}
+	userLogin.Uid = user.Uid
+	err = userLogin.GenMd5Passwd()
+	if err != nil {
+		session.Rollback()
+		errMsg = err.Error()
+		return
+	}
+	if _, err = session.Insert(userLogin); err != nil {
+		session.Rollback()
+		errMsg = "内部服务器错误"
+		logger.Errorln(errMsg, ":", err)
+		return
+	}
+
+	session.Commit()
+
+	return
+
+}
+
+func Userexit(ctx context.Context, field, val string) bool {
+	objLog := GetLogger(ctx)
+
+	userLogin := &UserLogin{}
+	_, err := MasterDB.Where(field+"=?", val).Get(userLogin)
+	if err != nil || userLogin.Uid == 0 {
+		if err != nil {
+			objLog.Errorln("user logic UserExists error:", err)
+		}
+		return false
+	}
+	return true
+
 }
