@@ -119,8 +119,13 @@ type UserRole struct {
 	ctime  string `xorm:"-"`
 }
 
+//申明model
+type UsersModel struct{}
+
+var Users = UsersModel{}
+
 //用户注册
-func UserModelCreateUser(ctx context.Context, form url.Values) (errMsg string, err error) {
+func (self UsersModel) CreateUser(ctx context.Context, form url.Values) (errMsg string, err error) {
 	objLog := GetLogger(ctx)
 
 	user := &User{}
@@ -173,7 +178,7 @@ func UserModelCreateUser(ctx context.Context, form url.Values) (errMsg string, e
 
 }
 
-func Userexit(ctx context.Context, field, val string) bool {
+func (self UsersModel) Userexit(ctx context.Context, field, val string) bool {
 	objLog := GetLogger(ctx)
 
 	userLogin := &UserLogin{}
