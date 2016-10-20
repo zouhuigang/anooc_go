@@ -37,12 +37,31 @@ users= {
 				$('.t').removeClass('err').removeClass('focus');
 				$.post("/register", $("#registerForm").serializeArray(), function(rs) {
 					$('.submit').removeAttr('disabled');
-					if (rs.status == "fail") {
-						$(rs.target).parent().find('.t').addClass('err')
-								.removeClass('ok').removeClass('focus').html(
-										rs.tip);
-					} else if (rs.status == "success") {
-						window.top.location.href = rs.href;
+					if (rs.status == "200") {
+						layer.msg(rs.info,{icon: 1,time: 2000}, function() {
+							window.top.location.href = "/";
+						});   
+						
+					} else{
+						//window.top.location.href = rs.href;
+						layer.msg(rs.info,{icon: 1,time: 2000});
+					}
+				}, 'json')
+				return false
+		 },
+		  _login: function (){
+		 		$('.submit').attr('disabled', true);
+				$('.t').removeClass('err').removeClass('focus');
+				$.post("/login", $("#loginForm").serializeArray(), function(rs) {
+					$('.submit').removeAttr('disabled');
+					if (rs.status == "200") {
+						layer.msg(rs.info,{icon: 1,time: 2000}, function() {
+							window.top.location.href = "/";
+						});   
+						
+					} else{
+						//window.top.location.href = rs.href;
+						layer.msg(rs.info,{icon: 1,time: 2000});
 					}
 				}, 'json')
 				return false
@@ -51,7 +70,7 @@ users= {
 	
 }
 //end user
-$('#reg-email').focus(
+$('#reg-email-bf').focus(
 			function() {
 			$("#reg-email-t").remove();
 			$(this).after("<div class=\"t\" id=\"reg-email-t\">请填写邮箱</div>");
@@ -76,7 +95,7 @@ $('#reg-email').focus(
 								'err').html('正在检测用户名……');
 						$.ajax({
 							type : 'get',
-							url : "/",
+							url : "/register",
 							data : 'm=user&c=check_email&email='
 									+ $.trim($this.val()),
 							success : function(html) {

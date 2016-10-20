@@ -128,6 +128,11 @@ var Users = UsersModel{}
 func (self UsersModel) CreateUser(ctx context.Context, form url.Values) (errMsg string, err error) {
 	objLog := GetLogger(ctx)
 
+	if self.UserExists(ctx, "email", form.Get("email")) {
+		errMsg = "该邮箱已存在"
+		err = errors.New("该邮箱已存在")
+		return
+	}
 	user := &User{}
 	err = schemaDecoder.Decode(user, form)
 	if err != nil {
@@ -178,7 +183,7 @@ func (self UsersModel) CreateUser(ctx context.Context, form url.Values) (errMsg 
 
 }
 
-func (self UsersModel) Userexit(ctx context.Context, field, val string) bool {
+func (self UsersModel) UserExists(ctx context.Context, field, val string) bool {
 	objLog := GetLogger(ctx)
 
 	userLogin := &UserLogin{}
@@ -190,5 +195,38 @@ func (self UsersModel) Userexit(ctx context.Context, field, val string) bool {
 		return false
 	}
 	return true
+
+}
+
+//登录模型
+
+func (this UsersModel) Login(ctx context.Context, username, passwd string) (*UserLogin, error) {
+	var (
+		ErrUsername = errors.New("用户名不存在")
+		ErrPasswd   = errors.New("密码错误")
+	)
+
+	objLog := GetLogger(ctx)
+
+	userLogin := &UserLogin{}
+	_, err := MasterDB.Where("email=?", username).Get(userLogin)
+	if err != nil {
+		objLog.Errorf("user %q login failure: %s", username, err)
+		return nil, errors.New("内部错误，请稍后再试！")
+	}
+	// 校验用户
+	if userLogin.Uid == 0 {
+		objLog.Infof("user %q is not exists!", username)
+		return nil, ErrUsername
+	}
+
+	md5Passwd := goutils.Md5(passwd + userLogin.Passcode)
+	objLog.Debugf("passwd: %s, passcode: %s, md5passwd: %s, dbpasswd: %s", passwd, userLogin.Passcode, md5Passwd, userLogin.Passwd)
+	if md5Passwd != userLogin.Passwd {
+		objLog.Infof("用户名 %q 填写的密码错误", username)
+		return nil, ErrPasswd
+	}
+
+	return userLogin, nil
 
 }

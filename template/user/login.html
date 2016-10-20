@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 {{template "header"}}
+<script type="text/javascript" language="javascript" src="/static/tools/layer/layer.js"></script>
 </head>
 <body style="background-color:#F3F3F3">
 <div class="bar-header">
@@ -15,17 +16,17 @@
 <div class="minimal-body">
 
 <div class="minimal-body-form">
-<form class="pure-form pure-form-stacked">
+<form class="pure-form pure-form-stacked" id="loginForm">
     <fieldset>
  
         <label for="email">邮箱</label>
-        <input id="email" class="pure-input-1" type="email" placeholder="你的邮箱地址">
+        <input id="username" class="pure-input-1" name="username" type="email" placeholder="你的邮箱地址">
 
         <label for="password">密码</label>
-        <input id="password" class="pure-input-1" type="password" placeholder="设置密码">
+        <input id="password" class="pure-input-1" name="passwd" type="password" placeholder="设置密码">
 
 		<label  class="ftips"><a href="#">忘记密码?</a></label>
-        <button type="submit" class="pure-button pure-input-1 button-warning">登录</button>
+        <button type="button"  onclick="users._login();" class="pure-button pure-input-1 button-warning">登录</button>
     </fieldset>
 </form>
 </div>

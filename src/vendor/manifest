@@ -210,6 +210,13 @@
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/labstack/echo/context",
+			"repository": "https://github.com/labstack/echo",
+			"revision": "1dcb7ba9ab8030aeb23e6e4d893a3efe0dc3d7a7",
+			"branch": "master",
+			"path": "/context"
+		},
+		{
 			"importpath": "github.com/labstack/gommon/bytes",
 			"repository": "https://github.com/labstack/gommon",
 			"revision": "741a209b277dcd5705c8568329c0b6e8864dc1d1",
@@ -229,6 +236,13 @@
 			"revision": "741a209b277dcd5705c8568329c0b6e8864dc1d1",
 			"branch": "master",
 			"path": "/log"
+		},
+		{
+			"importpath": "github.com/labstack/gommon/random",
+			"repository": "https://github.com/labstack/gommon",
+			"revision": "f3b1a1b3bd4726161e1200863d278df7da5e66ff",
+			"branch": "master",
+			"path": "/random"
 		},
 		{
 			"importpath": "github.com/lib/pq",
@@ -419,9 +433,39 @@
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/zouhuigang/config",
+			"repository": "https://github.com/zouhuigang/config",
+			"revision": "e4f8b7e9e2efddefc0979062d31a2f0514c1132c",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/zouhuigang/echo",
+			"repository": "https://github.com/zouhuigang/echo",
+			"revision": "862bee4ebd5fdb34323ba86936e8b25fd6753f83",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/zouhuigang/logger",
+			"repository": "https://github.com/zouhuigang/logger",
+			"revision": "bf758fa309a21f0d24ebd0791bfb9180fc5e4fb8",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/zouhuigang/md2txt",
 			"repository": "https://github.com/zouhuigang/md2txt",
 			"revision": "f30f852f05846750dc323ee9ca4789ac5e76ed8c",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/zouhuigang/sessions",
+			"repository": "https://github.com/zouhuigang/sessions",
+			"revision": "ca9ada44574153444b00d3fd9c8559e4cc95f896",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/zouhuigang/uuid",
+			"repository": "https://github.com/zouhuigang/uuid",
+			"revision": "7bbe408d339787c56ec15568c947c0959db1b275",
 			"branch": "master"
 		},
 		{
@@ -437,6 +481,27 @@
 			"revision": "1aafd77e1e7f6849ad16a7bdeb65e3589a10b2bb",
 			"branch": "master",
 			"path": "/html"
+		},
+		{
+			"importpath": "golang.org/x/net/http2/hpack",
+			"repository": "https://github.com/golang/net",
+			"revision": "8b4af36cd21a1f85a7484b49feb7c79363106d8e",
+			"branch": "master",
+			"path": "/http2/hpack"
+		},
+		{
+			"importpath": "golang.org/x/net/idna",
+			"repository": "https://github.com/golang/net",
+			"revision": "8b4af36cd21a1f85a7484b49feb7c79363106d8e",
+			"branch": "master",
+			"path": "/idna"
+		},
+		{
+			"importpath": "golang.org/x/net/lex/httplex",
+			"repository": "https://github.com/golang/net",
+			"revision": "8b4af36cd21a1f85a7484b49feb7c79363106d8e",
+			"branch": "master",
+			"path": "/lex/httplex"
 		},
 		{
 			"importpath": "golang.org/x/net/netutil",
