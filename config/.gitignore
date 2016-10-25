@@ -1,4 +1,4 @@
-env.ini
-env.dev.ini
+!env.ini
+!env.dev.ini
 env.pro.ini
 auto_crawl.json

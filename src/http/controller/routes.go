@@ -8,4 +8,6 @@ func RegisterRoutes(g *echo.Group) {
 	new(MdController).RegisterRoute(g)
 	new(ReactController).RegisterRoute(g)
 	new(UserController).RegisterRoute(g)
+
+	new(InstallController).RegisterRoute(g)
 }
