@@ -28,4 +28,4 @@ getpkg脚本是为了一键下载manifest中定义的包
 
 
 
-新项目地址：[安橙网--www.anooc.com](https://github.com/zouhuigang/anooc_go)
+新项目地址：[安橙网--www.anooc.com](https://github.com/zouhuigang/anooc-golang-docker)
