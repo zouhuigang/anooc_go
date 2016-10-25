@@ -25,3 +25,7 @@ getpkg脚本是为了一键下载manifest中定义的包
 =====此项目已废弃,仅供初学者参考，原因是已移动到docker中开发，目录变动较大，新地址后续发布=====
 
 如您要使用：请先进入/config/env.ini修改数据库及密码或者删除env.ini，重新安装项目
+
+
+
+新项目地址：[安橙网--www.anooc.com](https://github.com/zouhuigang/anooc_go)
